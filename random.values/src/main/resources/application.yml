@@ -1,0 +1,13 @@
+server:
+  port: 7080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres-db:5432/random_values
+    driverClassName: org.postgresql.Driver
+    username: admin
+    password: admin
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update

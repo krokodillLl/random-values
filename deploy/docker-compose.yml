@@ -1,0 +1,32 @@
+version: '3.8'
+name: random_values
+services:
+
+  postgres-db:
+    container_name: postgres-db
+    image: postgres:13.0-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=random_values
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+  application:
+    container_name: application
+    build:
+      context: ./../random.values
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"
+      - "7080:7080"
+    depends_on:
+    - postgres-db
+  frontend:
+    container_name: frontend
+    build:
+      context: ./../frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+    - application
