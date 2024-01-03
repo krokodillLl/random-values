@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "fa61262b-af91-4109-94ee-14f1f638e0a2",
+		"name": "Random Values",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10384475"
+	},
+	"item": [
+		{
+			"name": "getAllCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/api/1/random/category",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Category name 2\",\n    \"description\": \"Category description 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/api/1/random/category/add",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"category",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCategory",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Category name 2 NEW\",\n    \"description\": \"Category description 2 NEW\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/api/1/random/category/update/dbd0dd53-98de-4625-8926-90b34632d0b0",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"category",
+						"update",
+						"dbd0dd53-98de-4625-8926-90b34632d0b0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCategory",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/api/1/random/category/delete/5ae40483-addd-4e20-83c0-7a64f6880431",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"category",
+						"delete",
+						"5ae40483-addd-4e20-83c0-7a64f6880431"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRandomValueByCategoryId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/api/1/random/value/by/dbd0dd53-98de-4625-8926-90b34632d0b0",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"value",
+						"by",
+						"dbd0dd53-98de-4625-8926-90b34632d0b0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addValue",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Value name 2\",\n    \"description\": \"Value description 2\",\n    \"categoryId\": \"dbd0dd53-98de-4625-8926-90b34632d0b0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/api/1/random/value/add",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"value",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateValue",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Value name 2 NEW\",\n    \"description\": \"Value description 2 NEW\",\n    \"categoryId\": \"dbd0dd53-98de-4625-8926-90b34632d0b0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7080/api/1/random/value/update/51e3e6dc-36a5-4545-9251-43cc1c7b5ac3",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"value",
+						"update",
+						"51e3e6dc-36a5-4545-9251-43cc1c7b5ac3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteValue",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:7080/api/1/random/value/delete/f526ab5d-7085-4980-9fd3-f9c94d2f22be",
+					"host": [
+						"localhost"
+					],
+					"port": "7080",
+					"path": [
+						"api",
+						"1",
+						"random",
+						"value",
+						"delete",
+						"f526ab5d-7085-4980-9fd3-f9c94d2f22be"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
