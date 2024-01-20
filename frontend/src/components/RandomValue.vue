@@ -2,13 +2,13 @@
   <div>
     <div class="d-flex justify-content-center">
       <div class="form-outline me-3">
+        <label class="form-label" for="form1">Category</label>
         <select id="form1" class="btn btn-primary dropdown-toggle form-control" aria-expanded="false"
                 v-model="selectedCategory">
           <option class="dropdown-item" v-for="category in categories" :key="category.id" :value="category.id">
             {{ category.name }}
           </option>
         </select>
-        <label class="form-label" for="form1">Category</label>
       </div>
       <button :disabled="!selectedCategory" class="btn btn-primary" @click="getRandomValue">Get Random Value</button>
     </div>
