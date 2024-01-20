@@ -12,6 +12,7 @@
           <div class="container">
             <div class="row p-3">
               <h3>Category {{ index + 1 }}</h3>
+              <h3>{{ category.name }}</h3>
             </div>
             <div class="row p-3 border">
               <div class="col">
@@ -36,7 +37,10 @@
                 <button class="btn btn-warning btn-sm" @click="prepareCategoryForUpdate(category)">Update</button>
               </div>
             </div>
-            <div class="row p-3 border">
+            <div class="row p-3">
+              <button class="btn btn-outline-secondary" @click="category.hide = !category.hide">Скрыть</button>
+            </div>
+            <div class="row p-3 border" v-show="!category.hide">
               <div v-for="(value, index) in category.values" :key="index">
                 <div class="container">
                   <div class="row p-3">

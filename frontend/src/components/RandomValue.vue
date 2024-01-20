@@ -13,7 +13,30 @@
       <button :disabled="!selectedCategory" class="btn btn-primary" @click="getRandomValue">Get Random Value</button>
     </div>
     <div>
-      <h3 v-if="randomValue">{{ randomValue.name }} - {{ randomValue.description }}</h3>
+      <div class="container" v-if="randomValue">
+        <div class="row p-3 border">
+          <div class="col">
+            <h3>Name</h3>
+          </div>
+          <div class="col">
+            <h3>Description</h3>
+          </div>
+          <div class="col col-md-3">
+            <h3>Picture</h3>
+          </div>
+        </div>
+        <div class="row p-3 border">
+          <div class="col">
+            <h3>{{ randomValue.name }}</h3>
+          </div>
+          <div class="col">
+            <h3>{{ randomValue.description }}</h3>
+          </div>
+          <div class="col col-md-3">
+            <img :src="randomValue.picture" alt="image" class="image-fit"/>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -47,3 +70,11 @@ export default {
   }
 };
 </script>
+
+<style>
+.image-fit{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+</style>
