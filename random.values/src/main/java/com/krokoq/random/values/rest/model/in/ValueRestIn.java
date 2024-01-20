@@ -9,6 +9,7 @@ import java.util.UUID;
 public class ValueRestIn {
     private String name;
     private String description;
+    private String picture;
     @NotNull
     private UUID categoryId;
 }

@@ -45,16 +45,13 @@ public interface RandomsConverters {
                 .id(out.getId())
                 .name(out.getName())
                 .description(out.getDescription())
+                .picture(out.getPicture())
                 .categoryId(out.getCategoryId())
                 .build();
     }
 
     default ValueIn convert(ValueRestIn restIn) {
-        return ValueIn.builder()
-                .name(restIn.getName())
-                .description(restIn.getDescription())
-                .categoryId(restIn.getCategoryId())
-                .build();
+        return convert(restIn, null);
     }
 
     default ValueIn convert(ValueRestIn restIn, UUID valueId) {
@@ -62,6 +59,7 @@ public interface RandomsConverters {
                 .id(valueId)
                 .name(restIn.getName())
                 .description(restIn.getDescription())
+                .picture(restIn.getPicture())
                 .categoryId(restIn.getCategoryId())
                 .build();
     }

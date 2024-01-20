@@ -3,16 +3,19 @@
     <div class="container">
       <div class="row p-3 border">
         <div class="col">
-          <input id="valueName" class="form-control" type="text" v-model="value.name" placeholder="Value Name" required>
+          <input id="valueName" class="form-control" type="text" v-model="value.name" required>
           <label class="form-label" for="valueName">Value Name</label>
         </div>
         <div class="col">
-          <input id="valueDescription" class="form-control" type="text" v-model="value.description" placeholder="Value Description" required>
+          <input id="valueDescription" class="form-control" type="text" v-model="value.description">
           <label class="form-label" for="valueDescription">Value Description</label>
         </div>
         <div class="col">
+          <input id="valuePicture" class="form-control" type="file" @change="loadImage">
+          <label class="form-label" for="valuePicture">Value Picture</label>
+        </div>
+        <div class="col" v-if="!isUpdating">
           <select id="form1" class="btn btn-primary dropdown-toggle form-control" aria-expanded="false"
-                  v-if="!isUpdating"
                   v-model="selectedCategory">
             <option v-for="category in categories" :key="category.id" :value="category.id">
               {{ category.name }}
@@ -44,6 +47,7 @@ export default {
       value: {
         name: '',
         description: '',
+        picture: '',
         categoryId: null
       },
       isUpdating: false,
@@ -65,8 +69,7 @@ export default {
           .then(response => {
             console.log('Value created:', response.data);
             this.$emit('refresh-categories');
-            this.value = {name: '', description: '', categoryId: null};
-            this.selectedCategory = null;
+            this.clearData();
           })
           .catch(error => {
             console.error('Error creating value:', error);
@@ -77,10 +80,7 @@ export default {
           .then(response => {
             console.log('Value updated:', response.data);
             this.$emit('refresh-categories');
-            this.value = {name: '', description: '', categoryId: null};
-            this.isUpdating = false;
-            this.valueIdToUpdate = null;
-            this.selectedCategory = null;
+            this.clearData();
           })
           .catch(error => {
             console.error('Error updating value:', error);
@@ -91,6 +91,24 @@ export default {
       this.isUpdating = true;
       this.valueIdToUpdate = value.id;
       this.selectedCategory = this.categories.find(category => category.id === value.categoryId)
+    },
+    loadImage(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        this.value.picture = reader.result;
+      };
+      reader.onerror = (error) => {
+        console.log('Error: ', error);
+      };
+    },
+    clearData() {
+      this.value = {name: '', description: '', picture: '', categoryId: null};
+      this.isUpdating = false;
+      this.valueIdToUpdate = null;
+      this.selectedCategory = null;
     }
   }
 };

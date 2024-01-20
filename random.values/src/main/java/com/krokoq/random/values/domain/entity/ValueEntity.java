@@ -21,6 +21,8 @@ public class ValueEntity {
     private String name;
     @Column(name = "description")
     private String description;
+    @Column(name = "picture", columnDefinition = "TEXT")
+    private String picture;
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     @ToString.Exclude

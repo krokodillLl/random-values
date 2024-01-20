@@ -11,5 +11,6 @@ public class ValueOut {
     private UUID id;
     private String name;
     private String description;
+    private String picture;
     private UUID categoryId;
 }

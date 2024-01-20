@@ -49,6 +49,9 @@
                     <div class="col">
                       <h6>Description</h6>
                     </div>
+                    <div class="col col-md-3">
+                      <h6>Picture</h6>
+                    </div>
                     <div class="col col-md-2">
                       <h6>Action</h6>
                     </div>
@@ -60,9 +63,12 @@
                     <div class="col">
                       {{ value.description }}
                     </div>
+                    <div class="col col-md-3">
+                      <img :src="value.picture" alt="image" class="image-fit"/>
+                    </div>
                     <div class="btn-group col col-md-2">
-                      <button class="btn btn-danger btn-sm" @click="deleteValue(value.id)">Delete</button>
-                      <button class="btn btn-warning btn-sm" @click="prepareValueForUpdate(value)">Update</button>
+                      <button class="btn btn-danger btn-sm value-button" @click="deleteValue(value.id)">Delete</button>
+                      <button class="btn btn-warning btn-sm value-button" @click="prepareValueForUpdate(value)">Update</button>
                     </div>
                   </div>
                   <div class="row p-3">
@@ -136,3 +142,16 @@ export default {
   }
 };
 </script>
+
+<style>
+.image-fit{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.value-button{
+  white-space: normal !important;
+  height: 40pt;
+  width: 50pt;
+}
+</style>

@@ -93,7 +93,7 @@ public class RandomValuesServiceImpl implements RandomValuesService {
         return valueRepository.findById(valueIn.getId()).map(value -> {
                     value.setDescription(valueIn.getDescription());
                     value.setName(valueIn.getName());
-
+                    value.setPicture(valueIn.getPicture());
                     return value;
                 })
                 .map(valueRepository::save)
@@ -137,6 +137,7 @@ public class RandomValuesServiceImpl implements RandomValuesService {
                 .id(valueEntity.getId())
                 .name(valueEntity.getName())
                 .description(valueEntity.getDescription())
+                .picture(valueEntity.getPicture())
                 .categoryId(valueEntity.getCategory().getId())
                 .build();
     }
@@ -146,6 +147,7 @@ public class RandomValuesServiceImpl implements RandomValuesService {
                 .id(Objects.isNull(valueIn.getId()) ? UUID.randomUUID() : valueIn.getId())
                 .name(valueIn.getName())
                 .description(valueIn.getDescription())
+                .picture(valueIn.getPicture())
                 .category(categoryEntity)
                 .build();
     }
